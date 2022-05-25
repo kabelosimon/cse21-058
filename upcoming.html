@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kabelo's Movies Theatre</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+	.imgs{
+		border:1px solid #ddd;
+		border-radius: 4px;
+		padding: 5px;
+		width: 150px;
+
+	}
+	.imgs:hover{
+		box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+
+	}
+	.imgcont{
+		padding: 5px;
+		margin-right: 10px;
+		margin-top: 20px;
+		margin-left: 30px; 
+		margin-bottom: 20px;
+	}
+
+</style>
+</head>
+<body>
+
+   <!-- the div class names will help in css to call and edit the html code blocks -->
+	<div class="container" style="height: 150vh">
+		 <div class="navbar">
+		 	<h2>Movies Theatre</h2>
+		  <nav>
+		    <ul class="menuItems">
+		      <li><a href='index.html' data-item='Home'>Home</a></li>
+		      <li><a href='categories.html' data-item='About'>Categories</a></li>
+		      <li><a href='upcoming.html' data-item='Projects'>Upcoming</a></li>
+		      <li><a href='events.html' data-item='Blog'>Events</a></li>
+		      <li><a href='contact.html' data-item='Contact'>Contact</a></li>
+		    </ul>
+		  </nav>
+
+		 </div><br><br>
+		 <h2 style="text-align: center;"></h2><br>
+		 <p style="text-align: center;">Find the latest new movies coming soon to theaters. Get the latest release dates, watch trailers, see photos and and everything.</p>
+		 <div class="img-slider">
+      <div class="slide active">
+        <img src="images/morbius.jpg" alt="">
+        <div class="info">
+          <h3 style="color: #fff;">MORBIUS</h3>
+          <p style="color: #fff;">Dangerously ill with a rare blood disorder and determined to save others from the same fate, Dr. Morbius attempts a desperate gamble. While at first it seems to be a radical success, a darkness inside of him is soon unleashed. Release date:22 May 2022</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/bat.jpg" alt="">
+        <div class="info">
+          <h3 style="color: #fff;">BATMAN</h3>
+          <p style="color: #fff;">Batman ventures into Gotham City's underworld when a sadistic killer leaves behind a trail of cryptic clues. As the evidence begins to lead closer to home and the scale of the perpetrator's plans become clear, he must forge new relationships, unmask the culprit and bring justice to the abuse of power and corruption that has long plagued the metropolis..</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/northman.jpg" alt="">
+        <div class="info">
+          <h3 style="color: #fff;">THE NORTHMAN</h3>
+          <p style="color: #fff;">Prince Amleth is on the verge of becoming a man when his father is brutally murdered by his uncle, who kidnaps the boy's mother. Two decades later, Amleth is now a Viking who raids Slavic villages. He soon meets a seeress who reminds him of his vow -- save his mother, kill his uncle, avenge his father. </p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/moon.jpg" alt="">
+        <div class="info">
+          <h3 style="color: #fff;">MOONFALL</h3>
+          <p style="color: #fff;"> The world stands on the brink of annihilation when a mysterious force knocks the moon from its orbit and sends it hurtling toward a collision course with Earth. With only weeks before impact, NASA executive Jocinda "Jo" Fowler teams up with a man from her past and a conspiracy theorist for an impossible mission into space to save humanity.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/fam.jpg" alt="">
+        <div class="info">
+          <h3 style="color: #fff;">Fallen Angels Murder</h3>
+          <p style="color: #fff;">Ex-convict and aspiring lawyer Hollis Morgan becomes the subject of police scrutiny when a member of her book club is found murdered. Refusing to get stuck with another bad rap, Hollis sets out to find the killer after a second book-inspired murder.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+		</div><br><br>
+		<div class="content">
+			<h2 style="text-align: center" class="card-head">Explore more</h2><br>
+			<div class="add">
+				<div class="additems">
+					<div class="addcard">
+						<img class="img-card" src="images/popcorn.jpg"/>
+						<div class="content-card">
+							<h3 class="card-head">What to eat</h3>
+							<p class="text-card">Through the broadly uncurtained windows of any theatre, you'll still probably find good spicy popcorns with a variety of cold drinks and juices to make you relax and enjoy the movies..</p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="additems">
+					<div class="addcard">
+						<img class="img-card" src="images/thea4.jpg"/>
+						<div class="content-card">
+							<h3 class="card-head">Where to sit</h3>
+							<p class="text-card">You cannot enjoy a movie in a bad posture, that is why we made your comfortability our priority by installing the most comfortable chairs in the theatre</p>
+						</div>
+						
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+
+		<h2 style="text-align: center" class="card-head">Featured Images of our beautiful theatre</h2><br>
+
+		<a class="imgcont" target="_blank" href="images/thea1.jpg">
+			<img class="imgs" src="images/thea1.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea2.jpg">
+			<img class="imgs" src="images/thea2.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea3.jpg">
+			<img class="imgs" src="images/thea3.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea4.jpg">
+			<img class="imgs" src="images/thea4.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea5.jpg">
+			<img class="imgs" src="images/thea5.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea6.jpg">
+			<img class="imgs" src="images/thea6.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea7.jpg">
+			<img class="imgs" src="images/thea7.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea8.jpg">
+			<img class="imgs" src="images/thea8.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea9.jpg">
+			<img class="imgs" src="images/thea9.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea10.jpg">
+			<img class="imgs" src="images/thea10.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/thea11.jpg">
+			<img class="imgs" src="images/thea11.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/theatre.jpg">
+			<img class="imgs" src="images/theatre.jpg" alt="" style="width: 150px">
+		</a>
+
+<section class="goes" style="background-color: #fff">
+		<h2>Get to know more about the theatre by subcribing to our newsletters.</h2>
+		<p></p>
+		<a href="contact.html" class="gobutton">Learn More</a>
+	</section><br><br>
+
+ <footer>
+ 	<p>Copyright &copy; Kabelo</p>
+ </footer>
+
+
+
+</body>
+</html>
